@@ -17,8 +17,8 @@ Stepper motors are an ideal choice for accurately moving and positioning mechani
   ,We will cover several topics : 👍 
 
 
- 1. Unipolar Stepper with ULN2003
- 2. servo motor Controlled by using Potentiometer simulated with TINKERCAD circuit .
+ 1. Unipolar Stepper with ULN2003.
+ 2. Bipolar Stepper with L298N H-Bridge.
  3. servo motor with PCA9685 module rotate from 0 to 90 degrees and to 120 degree . 
  4. servo motor with PCA9685 module  Controlled by using Potentiometer. 
 
@@ -30,13 +30,19 @@ Project is created with:
 	
 ## Components required
 ### 1. Unipolar Stepper with ULN2003 
-1. Arduino UNO
-2. 1 Demo 1 – 28BYJ-48 Unipolar Stepper
-3. jumper wirs
-4. driver board ULN2003
-5. bettrey  5 and 12 volt 
-6. breadboard
-
+    1. Arduino UNO
+    2. 1 – 28BYJ-48 Unipolar Stepper
+    3. jumper wirs
+    4. driver board ULN2003
+    5. bettrey  5 and 12 volt 
+    6. breadboard
+### 2. Bipolar Stepper with L298N H-Bridge
+    1. Arduino UNO
+    2. 1 NEMA 17 bipolar stepper
+    3. jumper wirs
+    4. driver board L298N H-Bridge
+    5. bettrey  5 and 12 volt 
+    6. breadboard
 
 ## Connections
 
@@ -51,7 +57,8 @@ Project is created with:
      connected ULN2003 pin14 to pin3 in stepper
      connected ULN2003 pin13 to pin4 in stepper
      connected ULN2003 pin9 and the 2 2VDD pin in stepper motor to 12v battery 
-     
+ ### 2. Bipolar Stepper with L298N H-Bridge
+ 
  
 ### 2. servo motor Controlled by using Potentiometer simulated with TINKERCAD circuit .
      5V: Power (red) to servo 
