@@ -98,13 +98,18 @@ Project is created with:
      connected Potentiometer VDD to 5v in Arduino
      
 ## Block diagram & simulation
-### 1. Unipolar Stepper with ULN2003 . [see here](https://www.tinkercad.com/things/9Hd8sj9JjSr-servo-motor-rotate-from-0-to-90-degrees/editel)
-![Cool Bigery-Uusam (3)](https://user-images.githubusercontent.com/64277741/179117203-9ee32234-7d2c-4f77-b2a4-db39a51de82f.png)
-Figure (1): Servo Motor at initial value (0 degree
+### 1. Unipolar Stepper with ULN2003 . [see here](https://github.com/Wafaa-Almadhoun/Stepper-motor-using-Arduino-UNO-R3-/blob/main/stepper%20using%20ULN2003.pdsprj)
+##### Slow - 4-step CW sequence to observe lights on driver board
+![1](https://user-images.githubusercontent.com/64277741/179306291-f9684758-deaf-4828-9520-757a142ba537.PNG)
+Figure (1): Stepper Motor at 90 degree after 1-step CW sequence
+![2](https://user-images.githubusercontent.com/64277741/179307189-82e1089f-4cbb-403a-b78c-a4c990c24522.PNG)
+Figure (2): Stepper Motor at 180 degree after 2-step CW sequence
+![3](https://user-images.githubusercontent.com/64277741/179307421-bbcf698d-139f-4d30-aae9-9546c057fb68.PNG)
+Figure (3): Stepper Motor at 270 degree after 3-step CW sequence
+![4](https://user-images.githubusercontent.com/64277741/179307644-0f9d39bf-591d-45a1-b9c4-d38ec8528d7d.PNG)
+Figure (4): Stepper Motor at 342 degree after 4-step CW sequence
+##### Rotate CW 1/2 turn slowly
 
-After 30 ms
-![Cool Bigery-Uusam (2)](https://user-images.githubusercontent.com/64277741/179117381-296e4d7b-d3bb-45ee-b0f0-a619268678ff.png)
-Figure (2): Servo Motor at 90 degrees 
 
 #### The Code 
    #include <Servo.h>
