@@ -109,42 +109,69 @@ Figure (3): Stepper Motor at 270 degree after 3-step CW sequence
 ![4](https://user-images.githubusercontent.com/64277741/179307644-0f9d39bf-591d-45a1-b9c4-d38ec8528d7d.PNG)
 Figure (4): Stepper Motor at 342 degree after 4-step CW sequence
 ##### Rotate CW 1/2 turn slowly
-
+![5](https://user-images.githubusercontent.com/64277741/179308867-85dbccdc-5070-4164-82c7-9776d4b09fc9.PNG)
+Figure (5): Rotate CW 1/2 turn slowly
+##### Rotate CCW 1/2 turn quickly
+![6](https://user-images.githubusercontent.com/64277741/179309329-1eed85e5-3f0d-48a3-b2be-3d9a40e71869.PNG)
+Figure (6): Rotate CCW 1/2 turn quickly
 
 #### The Code 
-   #include <Servo.h>
-
-   Servo myservo;  // create servo object to control a servo
-
-
-   int pos = 0;    // variable to store the servo position
-
-   void setup() {
-
-     myservo.attach(9);  // attaches the servo on pin 9 to the servo object
-   }
-
-   void loop() {
-
-     for (pos = 0; pos <= 90; pos += 1) { // goes from 0 degrees to 90 degrees
+ Demonstrates 28BYJ-48 Unipolar Stepper with ULN2003 Driver
+  Uses Arduino Stepper Library
+ 
+//Include the Arduino Stepper Library
+#include <Stepper.h>
+ 
+// Define Constants
+ 
+// Number of steps per internal motor revolution 
+const float STEPS_PER_REV = 32; 
+ 
+//  Amount of Gear Reduction
+const float GEAR_RED = 64;
+ 
+// Number of steps per geared output rotation
+const float STEPS_PER_OUT_REV = STEPS_PER_REV * GEAR_RED;
+ 
+// Define Variables
+ 
+// Number of Steps Required
+int StepsRequired;
+ 
+// Create Instance of Stepper Class
+// Specify Pins used for motor coils
+// The pins used are 8,9,10,11 
+// Connected to ULN2003 Motor Driver In1, In2, In3, In4 
+// Pins entered in sequence 1-3-2-4 for proper step sequencing
+ 
+Stepper steppermotor(STEPS_PER_REV, 8, 10, 9, 11);
+ 
+void setup()
+{
+// Nothing  (Stepper Library sets pins as outputs)
+}
+ 
+void loop()
+{
+  // Slow - 4-step CW sequence to observe lights on driver board
+  steppermotor.setSpeed(1);    
+  StepsRequired  =  4;
+  steppermotor.step(StepsRequired);
+  delay(2000);
+ 
+   // Rotate CW 1/2 turn slowly
+  StepsRequired  =  STEPS_PER_OUT_REV / 2; 
+  steppermotor.setSpeed(100);   
+  steppermotor.step(StepsRequired);
+  delay(1000);
   
-       // in steps of 1 degree
-    
-       myservo.write(pos);              // tell servo to go to position in variable 'pos'
-    
-       delay(30);                       // waits 30ms for the servo to reach the position
-    
-     }
-  
-     for (pos = 90; pos >= 0; pos -= 1) { // goes from 90 degrees to 0 degrees
-  
-       myservo.write(pos);              // tell servo to go to position in variable 'pos'
-    
-       delay(30);                       // waits 30ms for the servo to reach the position
-    
-     }
-  
-   }
+  // Rotate CCW 1/2 turn quickly
+  StepsRequired  =  - STEPS_PER_OUT_REV / 2;   
+  steppermotor.setSpeed(700);  
+  steppermotor.step(StepsRequired);
+  delay(2000);
+ 
+}
 
 ### 2. servo motor Controlled by using Potentiometer simulated with TINKERCAD circuit .[see here ](https://www.tinkercad.com/things/bbagRhCJEr8-servo-motor-controlled-by-using-potentiometer/editel)
 
