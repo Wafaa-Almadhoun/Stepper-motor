@@ -60,16 +60,6 @@ Project is created with:
  ### 2. Bipolar Stepper with L298N H-Bridge
  
  
-### 2. servo motor Controlled by using Potentiometer simulated with TINKERCAD circuit .
-     5V: Power (red) to servo 
-     
-     Gnd: Ground (black) to servo
-     
-     we attach the servo object to pin 9 in arduino 
-       
-     5v: power from Arduino to breadboard to Potentiometer
-     
-     signal of Potentiometer attach to pin A0 in arduino 
  ### 3. servo motor with PCA9685 module rotate from 0 to 90 degrees and to 120 degree 
  
      connected SCL in Ardunio to SCL in PCA9685 
