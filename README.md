@@ -1,4 +1,4 @@
-# Stepper-motor
+# Stepper-motor-using-
 electronic path week 2 task
 
 
@@ -17,7 +17,7 @@ Stepper motors are an ideal choice for accurately moving and positioning mechani
   ,We will cover several topics : 👍 
 
 
- 1. servo motor rotate from 0 to 90 degrees and back simulated with TINKERCAD circuit  .
+ 1. Unipolar Stepper with ULN2003 .
  2. servo motor Controlled by using Potentiometer simulated with TINKERCAD circuit .
  3. servo motor with PCA9685 module rotate from 0 to 90 degrees and to 120 degree . 
  4. servo motor with PCA9685 module  Controlled by using Potentiometer. 
