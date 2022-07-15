@@ -98,7 +98,7 @@ Project is created with:
      connected Potentiometer VDD to 5v in Arduino
      
 ## Block diagram & simulation
-### 1.servo motor rotate from 0 to 90 degrees and back simulated with TINKERCAD circuit . [see here](https://www.tinkercad.com/things/9Hd8sj9JjSr-servo-motor-rotate-from-0-to-90-degrees/editel)
+### 1. Unipolar Stepper with ULN2003 . [see here](https://www.tinkercad.com/things/9Hd8sj9JjSr-servo-motor-rotate-from-0-to-90-degrees/editel)
 ![Cool Bigery-Uusam (3)](https://user-images.githubusercontent.com/64277741/179117203-9ee32234-7d2c-4f77-b2a4-db39a51de82f.png)
 Figure (1): Servo Motor at initial value (0 degree
 
