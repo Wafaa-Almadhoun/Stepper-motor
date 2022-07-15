@@ -17,7 +17,7 @@ Stepper motors are an ideal choice for accurately moving and positioning mechani
   ,We will cover several topics : 👍 
 
 
- 1. Unipolar Stepper with ULN2003 .
+ 1. Unipolar Stepper with ULN2003
  2. servo motor Controlled by using Potentiometer simulated with TINKERCAD circuit .
  3. servo motor with PCA9685 module rotate from 0 to 90 degrees and to 120 degree . 
  4. servo motor with PCA9685 module  Controlled by using Potentiometer. 
@@ -26,27 +26,33 @@ Stepper motors are an ideal choice for accurately moving and positioning mechani
 ## Technologies
 Project is created with:
 * Arduino IDE 1.8.19 [To Downloud](https://www.arduino.cc/en/software)
-* AUTODESK TINKERCAD [Open](https://www.tinkercad.com/)
+* Proteus [To Downloud](https://www.labcenter.com/simulation/)
 	
 ## Components required
+### 1. Unipolar Stepper with ULN2003 
 1. Arduino UNO
-2. 1 servo motors MG995
+2. 1 Demo 1 – 28BYJ-48 Unipolar Stepper
 3. jumper wirs
-4. 1 potentiometer 10 K ohm 
-5. bettrey  5 volt 
+4. driver board ULN2003
+5. bettrey  5 and 12 volt 
 6. breadboard
-7. PCA9685 module 
+
 
 ## Connections
 
-### 1. servo motor rotate from 0 to 90 degrees and back simulated with TINKERCAD circuit  .
-  
-     5V: Power (red) to servo 
+### 1. Unipolar Stepper with ULN2003
+
+     connected ULN2003 pin1 to pin 8 in Ardunio
+     connected ULN2003 pin2 to pin 9 in Ardunio
+     connected ULN2003 pin3 to pin 10 in Ardunio
+     connected ULN2003 pin4 to pin 11 in Ardunio
+     connected ULN2003 pin16 to pin1 in stepper
+     connected ULN2003 pin15 to pin2 in stepper
+     connected ULN2003 pin14 to pin3 in stepper
+     connected ULN2003 pin13 to pin4 in stepper
+     connected ULN2003 pin9 and the 2 2VDD pin in stepper motor to 12v battery 
      
-     Gnd: Ground (black) to servo
-     
-     we attach the servo object to pin 9 in arduino 
-   
+ 
 ### 2. servo motor Controlled by using Potentiometer simulated with TINKERCAD circuit .
      5V: Power (red) to servo 
      
