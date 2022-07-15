@@ -1,5 +1,5 @@
 # Stepper-motor-using-Arduino-UNO-R3-
-electronic path week 2 task
+
 
 
 ## Table of contents
