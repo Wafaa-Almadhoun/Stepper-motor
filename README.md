@@ -208,9 +208,10 @@ void loop()
 
 ### 2. Bipolar Stepper with L293D Motor Driver IC .[see here ](https://github.com/Wafaa-Almadhoun/Stepper-motor-using-Arduino-UNO-R3-/blob/main/Bipolar%20Stepper%20with%20L293D%20Motor%20Driver%20IC.pdsprj)
 ![1](https://user-images.githubusercontent.com/64277741/179328636-268173e6-09b8-46fb-9431-1dfe2eae640f.PNG)
-Figure (7): step one revolution in one direction ("clockwise")
+Figure (7): step one revolution in the other direction ("counterclockwise")
+
  ![2](https://user-images.githubusercontent.com/64277741/179328701-3dee3532-ada8-4ae9-abdd-f15dcee8762f.PNG)
-Figure (8): step one revolution in the other direction ("counterclockwise")
+Figure (8): step one revolution in one direction ("clockwise")
 
 #### The code 
 
