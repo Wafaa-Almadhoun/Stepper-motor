@@ -18,7 +18,7 @@ Stepper motors are an ideal choice for accurately moving and positioning mechani
 
 
  1. Unipolar Stepper with ULN2003.
- 2. Bipolar Stepper with L298N H-Bridge.
+ 2. Bipolar Stepper with L293D Motor Driver IC.
  3. servo motor with PCA9685 module rotate from 0 to 90 degrees and to 120 degree . 
  4. servo motor with PCA9685 module  Controlled by using Potentiometer. 
 
@@ -36,11 +36,11 @@ Project is created with:
     4. driver board ULN2003
     5. bettrey  5 and 12 volt 
     6. breadboard
-### 2. Bipolar Stepper with L298N H-Bridge
+### 2. Bipolar Stepper with L293D Motor Driver IC
     1. Arduino UNO
-    2. 1 NEMA 17 bipolar stepper
+    2. 1 bipolar stepper
     3. jumper wirs
-    4. driver board L298N H-Bridge
+    4. L293D Motor Driver IC
     5. bettrey  5 and 12 volt 
     6. breadboard
 
@@ -48,16 +48,28 @@ Project is created with:
 
 ### 1. Unipolar Stepper with ULN2003
 
-     connected ULN2003 pin1 to pin 8 in Ardunio
-     connected ULN2003 pin2 to pin 9 in Ardunio
-     connected ULN2003 pin3 to pin 10 in Ardunio
-     connected ULN2003 pin4 to pin 11 in Ardunio
-     connected ULN2003 pin16 to pin1 in stepper
-     connected ULN2003 pin15 to pin2 in stepper
-     connected ULN2003 pin14 to pin3 in stepper
-     connected ULN2003 pin13 to pin4 in stepper
-     connected ULN2003 pin9 and the 2 2VDD pin in stepper motor to 12v battery 
- ### 2. Bipolar Stepper with L298N H-Bridge
+     connecting ULN2003 pin1 to pin 8 in Ardunio
+     connecting ULN2003 pin2 to pin 9 in Ardunio
+     connecting ULN2003 pin3 to pin 10 in Ardunio
+     connecting ULN2003 pin4 to pin 11 in Ardunio
+     connecting ULN2003 pin16 to pin1 in stepper
+     connecting ULN2003 pin15 to pin2 in stepper
+     connecting ULN2003 pin14 to pin3 in stepper
+     connecting ULN2003 pin13 to pin4 in stepper
+     connecting ULN2003 pin9 and the 2 2VDD pin in stepper motor to 12v battery 
+     Connect ground to ground
+     
+ ### 2. Bipolar Stepper with L293D Motor Driver IC
+ 
+    connecting 5V output on Arduino to the Vcc2 & Vcc1 pins
+    
+    Connect ground to ground.
+    
+    connect the input pins(IN1, IN2, IN3 and IN4) of the L293D IC to 
+    
+    four digital output pins(12, 11, 10 and 9) on Arduino
+    0ne coil of stepper moter connecting to Out1 & Out2 and the anthor coil connecting to Out3 & Out4
+    
  
  
  ### 3. servo motor with PCA9685 module rotate from 0 to 90 degrees and to 120 degree 
