@@ -20,7 +20,7 @@ Stepper motors are an ideal choice for accurately moving and positioning mechani
  1. Unipolar Stepper with ULN2003.
  2. Bipolar Stepper with L293D Motor Driver IC.
  3. servo motor with PCA9685 module rotate from 0 to 90 degrees and to 120 degree . 
- 4. servo motor with PCA9685 module  Controlled by using Potentiometer. 
+  
 
 
 ## Technologies
@@ -85,26 +85,7 @@ Project is created with:
   
      connected servo motor to outputs 0 in PCA9685
      
-###  4. servo motor with PCA9685 module  Controlled by using Potentiometer
-    
-     connected SCL in Ardunio to SCL in PCA9685 
-  
-     connected SDA in Ardunio to SDA in PCA9685
-  
-     connected GND in Ardunio to GND in PCA9685
-  
-     2-pin screw connector at the top for the servo with 5v power supply
-  
-     connected 5v in Ardunio to VCC in PCA9685
-  
-     connected servo motor to outputs 0 in PCA9685
-     
-     connected Potentiometer signal to A0 in Arduino
-     
-     connected Potentiometer GND to GND in Arduino
-     
-     connected Potentiometer VDD to 5v in Arduino
-     
+
 ## Block diagram & simulation
 ### 1. Unipolar Stepper with ULN2003 . [see here](https://github.com/Wafaa-Almadhoun/Stepper-motor-using-Arduino-UNO-R3-/blob/main/stepper%20using%20ULN2003.pdsprj)
 ##### Slow - 4-step CW sequence to observe lights on driver board
@@ -315,77 +296,6 @@ pwm.setPWM(0, 0, pulseWidth(120));
 
 delay(1000);
 
-}
-
-### 4. servo motor with PCA9685 module  Controlled by using Potentiometer
-
-![Sketch  servo motor with PCA9685 module Controlled by using Potentiometer 2_bb](https://user-images.githubusercontent.com/64277741/179161772-121b9566-95d1-4b0b-9e70-b505945ecf0c.png)
-
-#### The code
-
-// Include Wire Library for I2C Communications
-
-#include <Wire.h>
- 
-// Include Adafruit PWM Library
-
-#include <Adafruit_PWMServoDriver.h>
- 
-#define MIN_PULSE_WIDTH       650
-
-#define MAX_PULSE_WIDTH       2350
-
-#define FREQUENCY             50
- 
-Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
- 
-// Define Potentiometer Inputs
- 
-int controlA = A0;
-
-// Define Motor Outputs on PCA9685 board
- 
-int motorA = 0;
-
-void setup() 
-{
-  pwm.begin();
-  
-  pwm.setPWMFreq(FREQUENCY);
-  
-}
- 
- 
-void moveMotor(int controlIn, int motorOut)
-
-{
-  int pulse_wide, pulse_width, potVal;
-  
-  
-  // Read values from potentiometer
-  
-  potVal = analogRead(controlIn);
-  
-  
-  // Convert to pulse width
-  
-  pulse_wide = map(potVal, 0, 1023, MIN_PULSE_WIDTH, MAX_PULSE_WIDTH);
-  
-  pulse_width = int(float(pulse_wide) / 1000000 * FREQUENCY * 4096);
-  
-  //Control Motor
-  
-  pwm.setPWM(motorOut, 0, pulse_width);
-  
- 
-}
- 
-void loop() {
- 
-  //Control Motor A
-  
-  moveMotor(controlA, motorA);
-  
 }
 
 
