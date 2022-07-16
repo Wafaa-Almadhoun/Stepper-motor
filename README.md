@@ -206,7 +206,7 @@ void loop()
  
 }
 
-### 2. Bipolar Stepper with L293D Motor Driver IC .[see here ](https://www.tinkercad.com/things/bbagRhCJEr8-servo-motor-controlled-by-using-potentiometer/editel)
+### 2. Bipolar Stepper with L293D Motor Driver IC .[see here ](https://github.com/Wafaa-Almadhoun/Stepper-motor-using-Arduino-UNO-R3-/blob/main/Bipolar%20Stepper%20with%20L293D%20Motor%20Driver%20IC.pdsprj)
 
 ![servo motor Controlled by using Potentiometer](https://user-images.githubusercontent.com/64277741/179123789-863c1598-059b-42cd-8c3f-d3abc94e5751.png)
 Figure (3): Servo Motor at initial value (0 degree)
