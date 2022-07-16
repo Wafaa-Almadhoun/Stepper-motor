@@ -38,7 +38,7 @@ Project is created with:
     6. breadboard
 ### 2. Bipolar Stepper with L293D Motor Driver IC
     1. Arduino UNO
-    2. 1 bipolar stepper
+    2. 1  NEMA 17 bipolar stepper
     3. jumper wirs
     4. L293D Motor Driver IC
     5. bettrey  5 and 12 volt 
@@ -70,7 +70,6 @@ Project is created with:
     four digital output pins(12, 11, 10 and 9) on Arduino
     0ne coil of stepper moter connecting to Out1 & Out2 and the anthor coil connecting to Out3 & Out4
     
- 
  
  ### 3. servo motor with PCA9685 module rotate from 0 to 90 degrees and to 120 degree 
  
@@ -207,7 +206,7 @@ void loop()
  
 }
 
-### 2. servo motor Controlled by using Potentiometer simulated with TINKERCAD circuit .[see here ](https://www.tinkercad.com/things/bbagRhCJEr8-servo-motor-controlled-by-using-potentiometer/editel)
+### 2. Bipolar Stepper with L293D Motor Driver IC .[see here ](https://www.tinkercad.com/things/bbagRhCJEr8-servo-motor-controlled-by-using-potentiometer/editel)
 
 ![servo motor Controlled by using Potentiometer](https://user-images.githubusercontent.com/64277741/179123789-863c1598-059b-42cd-8c3f-d3abc94e5751.png)
 Figure (3): Servo Motor at initial value (0 degree)
