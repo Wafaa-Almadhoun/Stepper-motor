@@ -207,42 +207,46 @@ void loop()
 }
 
 ### 2. Bipolar Stepper with L293D Motor Driver IC .[see here ](https://github.com/Wafaa-Almadhoun/Stepper-motor-using-Arduino-UNO-R3-/blob/main/Bipolar%20Stepper%20with%20L293D%20Motor%20Driver%20IC.pdsprj)
+![1](https://user-images.githubusercontent.com/64277741/179328636-268173e6-09b8-46fb-9431-1dfe2eae640f.PNG)
+Figure (7): step one revolution in one direction ("clockwise")
+ ![2](https://user-images.githubusercontent.com/64277741/179328701-3dee3532-ada8-4ae9-abdd-f15dcee8762f.PNG)
+Figure (8): step one revolution in the other direction ("counterclockwise")
 
-![servo motor Controlled by using Potentiometer](https://user-images.githubusercontent.com/64277741/179123789-863c1598-059b-42cd-8c3f-d3abc94e5751.png)
-Figure (3): Servo Motor at initial value (0 degree)
-
-After changing the value of Potentiometer 
-![servo motor Controlled by using Potentiometer (1)](https://user-images.githubusercontent.com/64277741/179124038-f83b191b-ad75-4a50-9389-99e6ef5e4fe5.png)
-Figure (4): Servo Motor at 180 degrees
-
-After changing the value of Potentiometer 
-
-![servo motor Controlled by using Potentiometer (2)](https://user-images.githubusercontent.com/64277741/179124144-9b929f91-288c-4dbe-83be-e01724491ac1.png)
-Figure (5): Servo Motor at 60 degree 
 #### The code 
 
-#include <Servo.h>
+// Include the Arduino Stepper Library
+#include <Stepper.h>
 
-Servo myservo;  // create servo object to control a servo
+// Number of steps per output rotation NEMA 17
 
-int potpin = 0;  // analog pin used to connect the potentiometer
+const int stepsPerRevolution = 200; 
 
-int val;    // variable to read the value from the analog pin
+// Create Instance of Stepper library
 
-void setup() {
-  myservo.attach(9);  // attaches the servo on pin 9 to the servo object
+Stepper myStepper(stepsPerRevolution, 12, 11, 10, 9);
+
+
+void setup()
+{
+  // set the speed at 20 rpm:
+  
+  myStepper.setSpeed(20);
+  
 }
 
-void loop() {
+void loop() 
+{
+  // step one revolution in one direction:
+  
+  myStepper.step(stepsPerRevolution);
+  
+  delay(1000);
 
-  val = analogRead(potpin);            // reads the value of the potentiometer (value between 0 and 1023)
+  // step one revolution in the other direction:
   
-  val = map(val, 0, 1023, 0, 180);     // scale it to use it with the servo (value between 0 and 180)
+  myStepper.step(-stepsPerRevolution);
   
-  myservo.write(val);                  // sets the servo position according to the scaled value
-  
-  delay(15);                           // waits for the servo to get 
-  
+  delay(1000);
 }
 
 
