@@ -19,7 +19,7 @@ Stepper motors are an ideal choice for accurately moving and positioning mechani
 
  1. Unipolar Stepper with ULN2003.
  2. Bipolar Stepper with L293D Motor Driver IC.
- 3. servo motor with PCA9685 module rotate from 0 to 90 degrees and to 120 degree . 
+ 3. BIG Stepper Motors NEMA 23 Bipolar with DM860A Microstep Driver . 
   
 
 
@@ -36,6 +36,7 @@ Project is created with:
     4. driver board ULN2003
     5. bettrey  5 and 12 volt 
     6. breadboard
+    
 ### 2. Bipolar Stepper with L293D Motor Driver IC
     1. Arduino UNO
     2. 1  NEMA 17 bipolar stepper
@@ -43,7 +44,18 @@ Project is created with:
     4. L293D Motor Driver IC
     5. bettrey  5 and 12 volt 
     6. breadboard
-
+    
+### 3. BIG Stepper Motors NEMA 23 Bipolar with DM860A Microstep Driver .
+    1. Arduino UNO
+    2. 1  NEMA 23 bipolar stepper
+    3. jumper wirs
+    4. DM860A Microstep Driver
+    5. bettrey 24 volt 
+    6. breadboard
+    7. push button 
+    8. 10 k ohm
+    9. potentiometer
+    
 ## Connections
 
 ### 1. Unipolar Stepper with ULN2003
@@ -71,21 +83,19 @@ Project is created with:
     0ne coil of stepper moter connecting to Out1 & Out2 and the anthor coil connecting to Out3 & Out4
     
  
- ### 3. servo motor with PCA9685 module rotate from 0 to 90 degrees and to 120 degree 
+ ### 3. BIG Stepper Motors NEMA 23 Bipolar with DM860A Microstep Driver 
  
-     connected SCL in Ardunio to SCL in PCA9685 
-  
-     connected SDA in Ardunio to SDA in PCA9685
-  
-     connected GND in Ardunio to GND in PCA9685
-  
-     2-pin screw connector at the top for the servo with 5v power supply
-  
-     connected 5v in Ardunio to VCC in PCA9685
-  
-     connected servo motor to outputs 0 in PCA9685
+     connecting pin6 in Ardunio to -DIR in DM860A 
+     connecting pin7 in Ardunio to -PUL in DM860A
+     connecting +5v output in Ardunio to +PUL & +DIR in DM860A
+     connecting pin2 in Ardunio to one side of push button and also the 10 K ohm resistor connection up to the +5v on the arduino 
+     connecting GND in Ardunio to the other side of push button
+     connecting GND in Ardunio to the one side of potentiometer
+     connecting +5v in Ardunio to the other side of potentiometer
+     connecting pin A0 in Ardunio to the signal of potentiometer
+     connecting the motor driver with 24v battery
      
-
+     
 ## Block diagram & simulation
 ### 1. Unipolar Stepper with ULN2003 . [see here](https://github.com/Wafaa-Almadhoun/Stepper-motor-using-Arduino-UNO-R3-/blob/main/stepper%20using%20ULN2003.pdsprj)
 ##### Slow - 4-step CW sequence to observe lights on driver board
@@ -232,70 +242,47 @@ void loop()
 }
 
 
-### servo motor with PCA9685 module rotate from 0 to 90 degrees and to 120 degree  
-![Untitled Sketch 2_bb](https://user-images.githubusercontent.com/64277741/179159046-d9a5dfe8-6d33-43f3-934e-13ba9179969a.png)
+### 3. BIG Stepper Motors NEMA 23 Bipolar with DM860A Microstep Driver  
+![3BIG Stepper Motors NEMA 23 Bipolar with DM860A Microstep Driver](https://user-images.githubusercontent.com/64277741/179338072-d89222ff-f4ea-4005-a69e-4427b546f48d.png)
 
 #### The Code 
-The sketch makes use of the Adafruit PWM Servo Driver Library which you will need to install to make this work.  It can be installed from the Library Manager in your Arduino IDE.
-
-#include <Wire.h>
-
-#include <Adafruit_PWMServoDriver.h>
-
-
-Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
-
-#define MIN_PULSE_WIDTH 650
-
-#define MAX_PULSE_WIDTH 2350
-
-#define DEFAULT_PULSE_WIDTH 1500
-
-#define FREQUENCY 50
-
-
-int servonum =0;
-
-void setup() 
-{ 
-
-Serial.begin(9600);
-
-Serial.println("16 channel Servo test!");
-
-pwm.begin();
-
-pwm.setPWMFreq(FREQUENCY);
-
+// Defin pins
+ 
+int reverseSwitch = 2;  // Push button for reverse
+int driverPUL = 7;    // PUL- pin
+int driverDIR = 6;    // DIR- pin
+int spd = A0;     // Potentiometer
+ 
+// Variables
+ 
+int pd = 500;       // Pulse Delay period
+boolean setdir = LOW; // Set Direction
+ 
+// Interrupt Handler
+ 
+void revmotor (){
+ 
+  setdir = !setdir;
+  
 }
-int pulseWidth(int angle)
-{
-int pulse_wide, analog_value;
-
-pulse_wide = map(angle, 0, 180, MIN_PULSE_WIDTH, MAX_PULSE_WIDTH);
-
-analog_value = int(float(pulse_wide) / 1000000 * FREQUENCY * 4096);
-
-Serial.println(analog_value);
-
-return analog_value;
-
+ 
+ 
+void setup() {
+ 
+  pinMode (driverPUL, OUTPUT);
+  pinMode (driverDIR, OUTPUT);
+  attachInterrupt(digitalPinToInterrupt(reverseSwitch), revmotor, FALLING);
+  
 }
-
+ 
 void loop() {
-
-pwm.setPWM(0, 0, pulseWidth(0));
-
-delay(1000);
-
-pwm.setPWM(0, 0, pulseWidth(90));
-
-delay(500);
-
-pwm.setPWM(0, 0, pulseWidth(120));
-
-delay(1000);
-
+  
+    pd = map((analogRead(spd)),0,1023,2000,50);
+    digitalWrite(driverDIR,setdir);
+    digitalWrite(driverPUL,HIGH);
+    delayMicroseconds(pd);
+    digitalWrite(driverPUL,LOW);
+    delayMicroseconds(pd);
+ 
 }
-
 
