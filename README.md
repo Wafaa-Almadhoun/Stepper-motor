@@ -94,7 +94,11 @@ Project is created with:
      connecting +5v in Ardunio to the other side of potentiometer
      connecting pin A0 in Ardunio to the signal of potentiometer
      connecting the motor driver with 24v battery
-     
+     connecting the pin A+ driver with A+ in DM860A
+     connecting the pin A- driver with A- in DM860A
+     connecting the pin B+ driver with B+ in DM860A
+     connecting the pin B- driver with B- in DM860A
+
      
 ## Block diagram & simulation
 ### 1. Unipolar Stepper with ULN2003 . [see here](https://github.com/Wafaa-Almadhoun/Stepper-motor-using-Arduino-UNO-R3-/blob/main/stepper%20using%20ULN2003.pdsprj)
